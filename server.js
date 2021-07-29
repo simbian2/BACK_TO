@@ -3,8 +3,6 @@ const bodyParser = require('body-parser')
 // npm install body-parser
 const app = express()
 const db = require('./models')
-const routes = require('./routes')
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false,}))
 
@@ -42,7 +40,7 @@ app.get('/',(req,res)=>{
     res.send('sadgsdg')
 })
 
-app.listen(6000,()=>{
-    console.log('start server port 3000')    
+app.listen(4000,()=>{
+    console.log('start server port 4000')    
 })
 
