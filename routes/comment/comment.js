@@ -2,16 +2,6 @@ const express = require('express')
 const router = express.Router()
 const {FeedBack, FAQ, calculator1, calculator2} = require('../../models')
 
-router.get('/',async(req,res,next)=>{
-    try{
-        const data = await FAQ.findAll({}) 
-        res.json(data)
-    } catch (error) {
-        console.error(error)
-        next(error)
-    }
-})
-
 router.post('/',async(req,res,next)=>{
 
     const {income,Resident_period,Resident_Location,Number_Of_Payment,Applying_Location} = req.body
@@ -26,7 +16,7 @@ router.post('/',async(req,res,next)=>{
 
         })
 
-        res.json(data)
+        res.json('df')
     } catch (error) {
         console.error(error)
         next(error)

@@ -16,13 +16,33 @@ db.sequelize.sync({focus:false}) // promise object
     console.log(`DB 접속 실패 : ${error} `)
 })
 
-app.use('/api',routes)
+app.post('/',async(req,res,next)=>{
 
-app.get('/',(req,res)=>{
-    res.send('hello aws!')
+    const {income,Resident_period,Resident_Location,Number_Of_Payment,Applying_Location} = req.body
+
+    try{
+        const data = await calculator1.create({
+            income:income,
+            Resident_Period:Resident_period,
+            Resident_Location:Resident_Location,
+            Number_Of_Payment:Number_Of_Payment,
+            Applying_Location:Applying_Location
+
+        })
+
+        res.json('df')
+    } catch (error) {
+        console.error(error)
+        next(error)
+    }
 })
 
-app.listen(80,()=>{
+
+app.get('/',(req,res)=>{
+    res.send('sadgsdg')
+})
+
+app.listen(6000,()=>{
     console.log('start server port 3000')    
 })
 
